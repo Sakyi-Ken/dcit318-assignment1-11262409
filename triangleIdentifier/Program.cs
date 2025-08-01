@@ -69,16 +69,16 @@ while (!validSide)
 }
 if (side1 == side2 && side2 == side3)
 {
-  Console.WriteLine($"Equilateral - All three sides are equal");
+  Console.WriteLine($"This is an Equilateral triangle - All three sides are equal ({side1}, {side2} and {side3})");
 }
 else if (side1 == side2 || side2 == side3 || side3 == side1)
 {
-  Console.WriteLine($"Isosceles - Two sides are equal");
+  Console.WriteLine($"This is an Isosceles triangle - Two sides are equal ({side1}, {side2} and {side3})");
 }
 else 
 {
-  Console.WriteLine("Scalene - None of the sides are equal");
+  Console.WriteLine($"This is a Scalene triangle - None of the sides are equal ({side1}, {side2} and {side3})");
 }
 Console.WriteLine("Thank you for using the Triangle Type Identifier!");
-Console.WriteLine("Press any key to quit.");
+Console.WriteLine("Press any Enter key to quit.");
 readSide = Console.ReadLine();

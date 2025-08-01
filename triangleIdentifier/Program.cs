@@ -10,52 +10,75 @@ int side2 = 0;
 int side3 = 0;
 bool validSide = false;
 string sideInput;
+int count = 0;
 
 while (!validSide)
 {
-  Console.WriteLine("Enter the first side of the triangle");
-  readSide = Console.ReadLine();
-  if (readSide != null)
-  {
-    sideInput = readSide.Trim();
-    validSide = int.TryParse(sideInput, out side1);
-  }
+  bool done = false;
+  int side;
 
-  Console.WriteLine("Enter the second side of the triangle");
-  readSide = Console.ReadLine();
-  if (readSide != null)
-  {
-    sideInput = readSide.Trim();
-    validSide = int.TryParse(sideInput, out side2);
-  }
+  while (!done && count < 3) {
+    count += 1;
+    if (count == 1) 
+    {
+      Console.WriteLine("Enter the first side of the triangle");
+    }
+    else if (count == 2)
+    {
+      Console.WriteLine("Enter the second side of the triangle");
+    }
+    else
+    {
+      Console.WriteLine("Enter the third side of the triangle");
+    }
 
-  Console.WriteLine("Enter the third side of the triangle");
-  readSide = Console.ReadLine();
-  if (readSide != null)
-  {
-    sideInput = readSide.Trim();
-    validSide = int.TryParse(sideInput, out side3);
-
-    if ((validSide) && (side1 <= 0 || side2 <= 0 || side3 <= 0))
+    readSide = Console.ReadLine();
+    if (readSide != null)
     {
-      Console.WriteLine($"None of the sides should be less than or equal to zero");
-      validSide = false;
+      sideInput = readSide.Trim();
+      validSide = int.TryParse(sideInput, out side);
+    
+      if (!validSide || side <= 0) 
+      {
+       Console.WriteLine($"You entered {sideInput} for side {count}. Please enter a number greater than 0");
+       validSide = false;
+       done = true;
+       count -= 1;
+      }
+      else if (count == 1)
+      {
+        side1 = side;
+      }
+      else if (count == 2)
+      {
+        side2 = side;
+      }
+      else
+      {
+        side3 = side;
+      }
     }
-    if (side1 == side2 && side2 == side3)
+    else
     {
-      Console.WriteLine($"Equilateral - All three sides are equal");
+      Console.WriteLine("Sorry, you entered an invalid side. Please try again.");
+      done = true;
+      count -= 1;
     }
-    else if (side1 == side2 || side2 == side3 || side3 == side1)
-    {
-      Console.WriteLine($"Isosceles - Two sides are equal");
-    }
-    else 
-    {
-      Console.WriteLine("Scalene - None of the sides are equal");
-    }
-  } 
-  else
-  {
-    Console.WriteLine("Sorry, You punched an invalid side. Please try again.");
   }
+  
 }
+if (side1 == side2 && side2 == side3)
+{
+  Console.WriteLine($"Equilateral - All three sides are equal");
+}
+else if (side1 == side2 || side2 == side3 || side3 == side1)
+{
+  Console.WriteLine($"Isosceles - Two sides are equal");
+}
+else 
+{
+  Console.WriteLine("Scalene - None of the sides are equal");
+}
+Console.WriteLine("Thank you for using the Triangle Type Identifier!");
+Console.WriteLine("Press any key to quit.");
+readSide = Console.ReadLine();

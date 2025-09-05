@@ -22,11 +22,10 @@ namespace Assignment1
       while (!validSide)
       {
         bool done = false;
-        int side;
-
-        while (!done && count < 3) {
+        while (!done && count < 3)
+        {
           count += 1;
-          if (count == 1) 
+          if (count == 1)
           {
             Console.WriteLine("Enter the first side of the triangle");
           }
@@ -43,14 +42,14 @@ namespace Assignment1
           if (readSide != null)
           {
             sideInput = readSide.Trim();
-            validSide = int.TryParse(sideInput, out side);
-          
-            if (!validSide || side <= 0) 
+            validSide = int.TryParse(sideInput, out int side);
+
+            if (!validSide || side <= 0)
             {
-            Console.WriteLine($"You entered {sideInput} for side {count}. Please enter a number greater than 0");
-            validSide = false;
-            done = true;
-            count -= 1;
+              Console.WriteLine($"You entered {sideInput} for side {count}. Please enter a number greater than 0");
+              validSide = false;
+              done = true;
+              count -= 1;
             }
             else if (count == 1)
             {
@@ -72,7 +71,7 @@ namespace Assignment1
             count -= 1;
           }
         }
-        
+
       }
       if (side1 == side2 && side2 == side3)
       {

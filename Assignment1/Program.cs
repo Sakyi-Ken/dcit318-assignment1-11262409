@@ -11,7 +11,7 @@ namespace Assignment1
 
       while (true)
       {
-        Console.WriteLine("\n====Assignment 1 Menu =====");
+        Console.WriteLine("\n==== Assignment 1 Menu =====");
         Console.WriteLine("1. Grade Calculator");
         Console.WriteLine("2. Ticket Price Calculator");
         Console.WriteLine("3. Triangle Type Identifier");
